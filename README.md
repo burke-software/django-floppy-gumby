@@ -6,7 +6,7 @@ django-floppy-gumby
 # Setup
 
 1. pip install django-floppy-gumby`
-1. Add `'gumby_floppy_forms',` to INSTALLED_APPS before floppyforms
+1. Add `'floppy_gumby_forms',` to INSTALLED_APPS before floppyforms
 1. Set up [django-floppy-forms](http://django-floppyforms.readthedocs.org/)
 
 # Usage
