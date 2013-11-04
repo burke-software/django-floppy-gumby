@@ -1,8 +1,6 @@
 django-floppy-gumby
 ===================
 
-[![Build Status](https://travis-ci.org/burke-software/django-content-edit.png?branch=master)](https://travis-ci.org/burke-software/django-content-edit)
-
 ![ScreenShot](/images/screen.png)
 
 # Setup
