@@ -1,0 +1,37 @@
+{% load floppyforms %}{% block row %}{% for field in fields %}
+{% with classes=field.css_classes label=label|default:field.label help_text=help_text|default:field.help_text %}
+{% block field %}
+{% block errors %}{% include "floppyforms/errors.html" with errors=field.errors %}{% endblock %}
+<div class="field {{ classes }}">
+    {% block label %}
+      <div class="four columns">
+        {% if not field.field.widget.input_type == "checkbox" %}
+          {% if field|id %}
+            <label class="inline" for="{{ field|id }}">
+              {% endif %}{{ label }}{% if label|last not in ".:!?" %}:{% endif %}{% if field|id %}
+            </label>{% endif %}
+        {% endif %}
+      </div>
+    {% endblock %}
+      <div class="eight columns">
+    {% block widget %}
+      {% with type=field.field.widget.input_type %}
+        {% if type == "checkbox" %}
+          <label class="checkbox" for="{{ field|id }}">
+            {% formfield field %}
+            <span></span> {{ label }}
+          </label>
+        {% elif field.field.widget.allow_multiple_selected == False %}
+          {% formfield field using "floppy_gumby_forms/select.html" %}
+        {% elif field.field.widget.allow_multiple_selected == True %}
+          {% formfield field %}
+        {% else %}
+          {% formfield field using "floppy_gumby_forms/input.html" %}
+        {% endif %}
+      {% endwith %}
+    {% endblock %}
+    {% block help_text %}{% if help_text %}<br/><span class="default alert helptext">{{ help_text }}</span>{% endif %}{% endblock %}
+      </div>
+    {% block hidden_fields %}{% for field in hidden_fields %}{{ field.as_hidden }}{% endfor %}{% endblock %}
+</div>{% endblock %}
+{% endwith %}{% endfor %}{% endblock %}
