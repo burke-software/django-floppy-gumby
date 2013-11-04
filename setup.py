@@ -23,5 +23,5 @@ setup(
         'Intended Audience :: Developers',
         "License :: OSI Approved :: BSD License",
     ],
-    install_requires=['django', 'django-floppyform']
+    install_requires=['django', 'django-floppyforms']
 )
