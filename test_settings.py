@@ -12,12 +12,9 @@ DATABASES = {
 
 INSTALLED_APPS = (
     'floppy_gumby_forms',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.sites',
+    'floppyforms',
     'django.contrib.staticfiles',
-    'django.contrib.admin',
+    'south',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
