@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name = "django-floppy-gumby",
-    version = "0.1",
+    version = "0.2",
     author = "David Burke",
     author_email = "david@burkesoftware.com",
     description = ("Gumby Framework forms for Django using floppy forms. A floppy and gumby project."),

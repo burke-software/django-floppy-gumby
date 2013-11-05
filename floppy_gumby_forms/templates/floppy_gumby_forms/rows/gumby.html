@@ -1,8 +1,7 @@
 {% load floppyforms %}{% block row %}{% for field in fields %}
 {% with classes=field.css_classes label=label|default:field.label help_text=help_text|default:field.help_text %}
 {% block field %}
-{% block errors %}{% include "floppyforms/errors.html" with errors=field.errors %}{% endblock %}
-<div class="field {{ classes }}">
+<div class="field {% if field.errors %} danger {% endif %}{{ classes }}">
     {% block label %}
       <div class="four columns">
         {% if not field.field.widget.input_type == "checkbox" %}
@@ -30,6 +29,7 @@
         {% endif %}
       {% endwith %}
     {% endblock %}
+    {% block errors %}{% include "floppy_gumby_forms/errors.html" with errors=field.errors %}{% endblock %}
     {% block help_text %}{% if help_text %}<br/><span class="default alert helptext">{{ help_text }}</span>{% endif %}{% endblock %}
       </div>
     {% block hidden_fields %}{% for field in hidden_fields %}{{ field.as_hidden }}{% endfor %}{% endblock %}
